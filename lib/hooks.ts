@@ -1,3 +1,4 @@
+import { Playlist } from "@prisma/client";
 import useSWR from "swr";
 import fetcher from "./fetcher";
 
