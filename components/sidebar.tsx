@@ -18,6 +18,7 @@ import {
     MdFavorite
 } from 'react-icons/md'
 import { usePlaylist } from '../lib/hooks'
+import playlist from '../pages/api/playlist'
 
 const navMenu = [
     {
