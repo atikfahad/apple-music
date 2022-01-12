@@ -9,9 +9,9 @@ import {
     Center,
     Flex,
     Text
-} from '@chakra-ui/react'
-import ReactHowler from 'react-howler'
-import { useEffect, useRef, useState } from 'react'
+} from '@chakra-ui/react';
+import ReactHowler from 'react-howler';
+import { useEffect, useRef, useState } from 'react';
 import {
     MdOutlinePauseCircleFilled,
     MdOutlineRepeat,
@@ -19,9 +19,9 @@ import {
     MdSkipPrevious,
     MdSkipNext,
     MdOutlinePlayCircleFilled,
-} from 'react-icons/md'
-import { useStoreActions } from 'easy-peasy'
-import { formatTime } from '../lib/formatter'
+} from 'react-icons/md';
+import { useStoreActions } from 'easy-peasy';
+import { formatTime } from '../lib/formatter';
 
 
 const Player = ({ songs, activeSong }) => {
@@ -38,7 +38,7 @@ const Player = ({ songs, activeSong }) => {
     const soundRef = useRef(null);
     const repeatRef = useRef(repeat); // closure issue settlement
 
-    useEffect(() => {
+useEffect(() => {
         let timerId
         if (playing && !isSeeking) {
             const f = () => {
@@ -51,7 +51,7 @@ const Player = ({ songs, activeSong }) => {
         cancelAnimationFrame(timerId)
     }, [playing, isSeeking])
 
-    useEffect(() => {
+useEffect(() => {
         setActiveSong(songs[index])
     }, [index, setActiveSong, songs])
 
@@ -184,7 +184,7 @@ const Player = ({ songs, activeSong }) => {
                             step={0.1}
                             min={0}
                             id="player-range"
-                            max={duration ? duration.toFixed(2) : 0}
+                            max={duration ? (duration.toFixed(2) as unknown as number) : 0}
                             onChange={onSeek}
                             value={[seek]}
                             onChangeStart={() => setIsSeeking(true)}
