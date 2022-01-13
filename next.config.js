@@ -4,6 +4,6 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreDuringBuilds: true,
+    ignoreDuringErrors: true,
   },
 };
