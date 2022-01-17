@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import cookie from 'cookie'
-import prisma from '../../lib/prisma'
 import { NextApiRequest, NextApiResponse } from 'next'
+import prisma from '../../lib/prisma'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { email, password } = req.body;
@@ -26,7 +26,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 maxAge: 8 * 60 * 60,
                 path: '/',
                 sameSite: 'lax',
-                secure: process.env.NODE_ENV == 'production'
+                secure: process.env.NODE_ENV === 'production'
             }))
 
         res.json(user)

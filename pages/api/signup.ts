@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken"
 import cookie from 'cookie'
-import prisma from '../../lib/prisma'
 import { NextApiRequest, NextApiResponse } from 'next'
+import prisma from '../../lib/prisma'
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const salt = bcrypt.genSaltSync()
     const { email, password } = req.body
-
     let user;
     try {
         user = await prisma.user.create({
@@ -34,7 +34,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             maxAge: 8 * 60 * 60,
             path: '/',
             sameSite: 'lax',
-            secure: process.env.NODE_ENV == 'production'
+            secure: process.env.NODE_ENV === 'production'
         })
     )
 

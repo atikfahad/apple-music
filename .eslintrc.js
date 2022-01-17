@@ -41,6 +41,5 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'prettier/prettier': 'warn',
   },
 }
